@@ -1,0 +1,9 @@
+"""bazel_llvm_clang
+
+"""
+
+module(
+    name = "bazel_llvm_clang",
+    version = "0.0.1",
+    repo_name = "sacha_bazel_llvm_clang",
+)
