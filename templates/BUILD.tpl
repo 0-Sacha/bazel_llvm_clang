@@ -35,7 +35,10 @@ cc_toolchain_config(
     cxxopts = %{cxxopts},
     linkopts = %{linkopts},
     defines = %{defines},
-    includedirs = %{includedirs},
+    includedirs = [
+        "%{compiler_package_path}lib/clang/%{clang_version}/include",
+        "%{compiler_package_path}include",
+    ] + %{includedirs},
     linkdirs = [
         "%{compiler_package_path}lib/clang/%{clang_version}/lib/x86_64-unknown-linux-gnu",
         "%{compiler_package_path}lib",
