@@ -1,7 +1,7 @@
-"""MinGW Archives
+"""LLVM registry
 """
 
-load("@bazel_utilities//toolchains:archives.bzl", "gen_archives_registry")
+load("@bazel_utilities//toolchains:registry.bzl", "gen_archives_registry")
 
 LLVM_17_0_6 = {
     "toolchain": "LLVM-ubuntu",
