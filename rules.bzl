@@ -144,6 +144,8 @@ def llvm_clang_toolchain(
         
         local_download = True,
         registry = LLVM_REGISTRY,
+      
+        auto_register_toolchain = True
     ):
     """LLVM Toolchain
 
@@ -169,6 +171,8 @@ def llvm_clang_toolchain(
 
         local_download: wether the archive should be downloaded in the same repository (True) or in its own repo
         registry: The arm registry to use, to allow close environement to provide their own mirroir/url
+       
+        auto_register_toolchain: If the toolchain is registered to bazel using `register_toolchains`
     """
     compiler_package_name = ""
 
@@ -207,4 +211,5 @@ def llvm_clang_toolchain(
         flags_packed = flags_packed,
     )
 
-    native.register_toolchains("@{}//:toolchain_llvm_clang_{}".format(name, clang_version))
+    if auto_register_toolchain:
+        native.register_toolchains("@{}//:toolchain_llvm_clang_{}".format(name, clang_version))
